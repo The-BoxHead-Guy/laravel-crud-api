@@ -10,9 +10,7 @@ Route::get("/student/{id}", [StudentController::class, "show"]);
 
 Route::post("/students", [StudentController::class, "store"]);
 
-Route::put("/student/{id}", function () {
-    return response()->json(["message" => "Updating student"], 200);
-});
+Route::put("/student/{id}", [StudentController::class, "update"]);
 
 Route::patch("/student/{id}/property/{name}", function () {
     return response()->json(["message" => "changing attribute of student {id}"], 200);
