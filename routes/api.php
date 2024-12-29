@@ -12,8 +12,6 @@ Route::post("/students", [StudentController::class, "store"]);
 
 Route::put("/student/{id}", [StudentController::class, "update"]);
 
-Route::patch("/student/{id}/property/{name}", function () {
-    return response()->json(["message" => "changing attribute of student {id}"], 200);
-});
+Route::patch("/student/{id}", [StudentController::class, "updatePartial"]);
 
 Route::delete("/student/{id}", [StudentController::class, "destroy"]);
