@@ -18,6 +18,4 @@ Route::patch("/student/{id}/property/{name}", function () {
     return response()->json(["message" => "changing attribute of student {id}"], 200);
 });
 
-Route::delete("/student/{id}", function () {
-    return response()->json(["message" => "Deleting student..."], 200);
-});
+Route::delete("/student/{id}", [StudentController::class, "destroy"]);

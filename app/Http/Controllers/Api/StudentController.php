@@ -104,4 +104,29 @@ class StudentController extends Controller
             200
         );
     }
+
+    public function destroy($id)
+    {
+        $student = Student::find($id);
+
+        if (!$student) {
+            $data = [
+                "message" => "Student not found",
+                "status" => 404,
+            ];
+
+            return response()->json($data, $data["status"]);
+        }
+
+        // Delete the student
+        $student->delete();
+
+        return response()->json(
+            [
+                "message" => "Student deleted successfully",
+                "status" => 200,
+            ],
+            200
+        );
+    }
 }
