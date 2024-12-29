@@ -1,19 +1,16 @@
 <?php
 
+use App\Http\Controllers\Api\StudentController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-Route::get("/students", function () {
-    return response()->json(["message" => "Getting Students List..."], 200);
-});
+Route::get("/students", [StudentController::class, "index"]);
 
 Route::get("/student/{id}", function () {
     return response()->json(["message" => "Getting Student"], 200);
 });
 
-Route::post("/students", function () {
-    return response()->json(["message" => "Creating the student"], 200);
-});
+Route::post("/students", [StudentController::class, "store"]);
 
 Route::put("/student/{id}", function () {
     return response()->json(["message" => "Updating student"], 200);
