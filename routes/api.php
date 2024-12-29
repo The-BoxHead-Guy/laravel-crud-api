@@ -6,9 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/students", [StudentController::class, "index"]);
 
-Route::get("/student/{id}", function () {
-    return response()->json(["message" => "Getting Student"], 200);
-});
+Route::get("/student/{id}", [StudentController::class, "show"]);
 
 Route::post("/students", [StudentController::class, "store"]);
 
